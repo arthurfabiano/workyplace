@@ -1,0 +1,38 @@
+{
+    "fields": [
+        {
+            "name": "last_name",
+            "type": "string"
+        },
+        {
+            "name": "first_name",
+            "type": "string"
+        },
+        {
+            "name": "email",
+            "type": "email"
+        },
+        {
+            "name": "password",
+            "type": "password"
+        }
+    ],
+    "validations": [
+        {
+            "field": "last_name",
+            "rules": "required|string|max:150"
+        },
+        {
+            "field": "first_name",
+            "rules": "required|string|max:150"
+        },
+        {
+            "field": "email",
+            "rules": "required|string|max:255"
+        },
+        {
+            "field": "password",
+            "rules": "required|string|max:8"
+        }
+    ]
+}
