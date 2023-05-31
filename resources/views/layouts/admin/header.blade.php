@@ -5,17 +5,6 @@
 <!-- Navbar Search-->
 <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
     <div class="input-group">
-        <form method="POST" action="{{ route('admin.search') }}" accept-charset="UTF-8" class="form-inline my-2 my-lg-0 float-right" role="search">
-            @csrf
-            <div class="input-group">
-                <input type="text" class="form-control" name="search" placeholder="Localizar..." value="{{ old('search') }}">
-                <span class="input-group-append">
-                    <button class="btn btn-primary" type="submit">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </span>
-            </div>
-        </form>
     </div>
 </form>
 <!-- Navbar-->
@@ -29,6 +18,7 @@
             <li><a class="dropdown-item" href="{{ route('speakers.index') }}">Palestrantes</a></li>
             <li><a class="dropdown-item" href="{{ route('participants.index') }}">Participantes</a></li>
             <li><hr class="dropdown-divider" /></li>
+            <li><a class="dropdown-item" href="{{ route('site.index') }}" target="_blank">Ver Site</a></li>
             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                 <i class="fas fa-power-off mr-2"></i> Sair
             </a>

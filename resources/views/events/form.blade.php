@@ -1,6 +1,6 @@
 <div class="form-group mb-3 {{ $errors->has('rooms') ? 'has-error' : ''}}">
     <div class="form-group mb-3 {{ $errors->has('rooms') ? 'has-error' : ''}}">
-        <label for="rooms" class="control-label">{{ 'Salas' }}</label>
+        <label for="rooms" class="control-label">{{ 'Salas' }}<span class="text-danger">*</span></label>
         <br/>
         <select class="form-select" name="room_id" aria-label="size 3 select example">
             <option value="">Selecione a Sala</option>
@@ -16,7 +16,7 @@
 </div>
 <div class="form-group mb-3 {{ $errors->has('speakers') ? 'has-error' : ''}}">
     <div class="form-group mb-3 {{ $errors->has('speakers') ? 'has-error' : ''}}">
-        <label for="speakers" class="control-label">{{ 'Palestrante' }}</label>
+        <label for="speakers" class="control-label">{{ 'Palestrante' }}<span class="text-danger">*</span></label>
         <br/>
         <select class="form-select" name="speaker_id" aria-label="size 3 select example">
             <option value="">Selecione a Sala</option>
@@ -31,20 +31,20 @@
     {!! $errors->first('topics', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group mb-3 {{ $errors->has('title') ? 'has-error' : ''}}">
-    <label for="title" class="control-label">{{ 'Titulo' }}</label>
+    <label for="title" class="control-label">{{ 'Titulo' }}<span class="text-danger">*</span></label>
     <input class="form-control mb-3" name="title" type="text" id="title" value="{{ isset($event->title) ? $event->title : ''}}" required>
 
     {!! $errors->first('title', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group mb-3 {{ $errors->has('description') ? 'has-error' : ''}}">
-    <label for="description" class="control-label">{{ 'Descrição' }}</label>
+    <label for="description" class="control-label">{{ 'Descrição' }}<span class="text-danger">*</span></label>
     <textarea rows="4" name="description" class="form-control @error('description') is-invalid @enderror" placeholder="Digite aqui seu texto..." required>{{ old('description', @$event->description) }}</textarea>
 
     {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group mb-3 {{ $errors->has('topics') ? 'has-error' : ''}}">
     <div class="form-group mb-3 {{ $errors->has('topics') ? 'has-error' : ''}}">
-        <label for="topics" class="control-label">{{ 'Tópicos' }}</label>
+        <label for="topics" class="control-label">{{ 'Tópicos' }}<span class="text-danger">*</span></label>
         <br/>
         <select class="form-select" name="topics[]" size="3" multiple aria-label="size 3 select example">
             <option value="SEO/SEM Marketing" {{ isset($topics) ? in_array('SEO/SEM Marketing', $topics) ? 'selected' : '' : '' }}>SEO/SEM Marketing</option>
@@ -59,13 +59,13 @@
     {!! $errors->first('topics', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group mb-3 {{ $errors->has('start_date') ? 'has-error' : ''}}">
-    <label for="start_date" class="control-label">{{ 'Data e Hora de início' }}</label>
+    <label for="start_date" class="control-label">{{ 'Data e Hora de início' }}<span class="text-danger">*</span></label>
     <input class="form-control mb-3" name="start_date" type="datetime-local" id="start_date" value="{{ isset($event->start_date) ? $event->start_date : ''}}" required>
 
     {!! $errors->first('start_date', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group mb-3 {{ $errors->has('finish_date') ? 'has-error' : ''}}">
-    <label for="finish_date" class="control-label">{{ 'Data de Hora de Término' }}</label>
+    <label for="finish_date" class="control-label">{{ 'Data de Hora de Término' }}<span class="text-danger">*</span></label>
     <input class="form-control mb-3" name="finish_date" type="datetime-local" id="finish_date" value="{{ isset($event->finish_date) ? $event->finish_date : ''}}" required>
 
     {!! $errors->first('finish_date', '<p class="help-block">:message</p>') !!}

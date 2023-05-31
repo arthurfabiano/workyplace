@@ -61,7 +61,7 @@ class ParticipantsController extends Controller
 
         SendEmailRegistrationUser::dispatch($participants);
 
-        return redirect('participants')->with('flash_message', 'Participant added!');
+        return redirect('participants')->with('flash_message', 'Participantes adicionado!');
     }
 
     /**
@@ -107,7 +107,7 @@ class ParticipantsController extends Controller
         $participant = Participant::query()->findOrFail($id);
         $participant->update($requestData);
 
-        return redirect('participants')->with('flash_message', 'Participant updated!');
+        return redirect('participants')->with('flash_message', 'Participante atualizado!');
     }
 
     /**
@@ -121,6 +121,6 @@ class ParticipantsController extends Controller
     {
         Participant::destroy($id);
 
-        return redirect('participants')->with('flash_message', 'Participant deleted!');
+        return redirect('participants')->with('flash_message', 'Participante deletado!');
     }
 }

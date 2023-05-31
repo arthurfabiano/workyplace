@@ -82,7 +82,7 @@ class EventsController extends Controller
 
         $this->eventRepository->createEvent($requestData);
 
-        return redirect('events')->with('flash_message', 'Event added!');
+        return redirect('events')->with('flash_message', 'Evento Adicionado!');
     }
 
     /**
@@ -141,7 +141,7 @@ class EventsController extends Controller
         $event = $this->eventRepository->getEventToId($id);
         $event->update($requestData);
 
-        return redirect('events')->with('flash_message', 'Event updated!');
+        return redirect('events')->with('flash_message', 'Evento atualizado!');
     }
 
     /**
@@ -155,6 +155,6 @@ class EventsController extends Controller
     {
         $this->eventRepository->getDestroyEvent($id);
 
-        return redirect('events')->with('flash_message', 'Event deleted!');
+        return redirect('events')->with('flash_message', 'Evento deletado!');
     }
 }

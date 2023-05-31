@@ -1,11 +1,7 @@
 {
     "fields": [
         {
-            "name": "last_name",
-            "type": "string"
-        },
-        {
-            "name": "first_name",
+            "name": "full_name",
             "type": "string"
         },
         {
@@ -13,45 +9,30 @@
             "type": "email"
         },
         {
-            "name": "password",
-            "type": "password"
+            "name": "telefone",
+            "type": "string"
         },
         {
-            "name": "user_id",
-            "type": "integer#unsigned"
-        }
-    ],
-    "foreign_keys": [
-        {
-            "column": "user_id",
-            "references": "id",
-            "on": "users",
-            "onDelete": "cascade"
-        }
-    ],
-    "relationships": [
-        {
-            "name": "user",
-            "type": "belongsTo",
-            "class": "App\\Models\\User"
+            "name": "message",
+            "type": "string"
         }
     ],
     "validations": [
         {
-            "field": "last_name",
-            "rules": "required|string|max:150"
-        },
-        {
-            "field": "first_name",
+            "field": "full_name",
             "rules": "required|string|max:150"
         },
         {
             "field": "email",
-            "rules": "required|string|max:255"
+            "rules": "required|string|max:150"
         },
         {
-            "field": "password",
-            "rules": "required|string|max:8"
+            "field": "telefone",
+            "rules": "required|string|max:20"
+        },
+        {
+            "field": "message",
+            "rules": "required"
         }
     ]
 }

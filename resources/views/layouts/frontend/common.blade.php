@@ -29,17 +29,22 @@
         <div class="row align-items-center justify-content-between flex-column flex-sm-row">
             <div class="col-auto"><div class="small m-0">Desenvolvido por Arthur Fabiano 2023</div></div>
             <div class="col-auto">
-                <a class="small" href="#!">Home</a>
+                <a class="small" href="{{ route('site.index') }}">Home</a>
                 <span class="mx-1">&middot;</span>
-                <a class="small" href="#!">Eventos</a>
+                <a class="small" href="{{ route('site.eventos') }}">Eventos</a>
                 <span class="mx-1">&middot;</span>
-                <a class="small" href="#!">Palestrantes</a>
+                <a class="small" href="{{ route('site.palestrantes') }}">Palestrantes</a>
                 <span class="mx-1">&middot;</span>
-                <a class="small" href="#!">Contato</a>
+                <a class="small" href="{{ route('site.contato') }}">Contato</a>
                 <span class="mx-1">&middot;</span>
-                <a class="small" href="#!">Entrar</a>
-                <span class="mx-1">&middot;</span>
-                <a class="small" href="#!">Registar</a>
+                @if(Auth::check())
+                    <a class="small" href="{{ route('admin.dashboard') }}">Acessar Painel</a>
+                @endif
+                @if(Auth::guest())
+                    <a class="small" href="{{ route('login') }}">Entrar</a>
+                    <span class="mx-1">&middot;</span>
+                    <a class="small" href="{{ route('register') }}">Registar</a>
+                @endif
             </div>
         </div>
     </div>

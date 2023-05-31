@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests;
+use App\Http\Requests\SpeakersRequest;
 use App\Models\Speaker;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -53,24 +54,12 @@ class SpeakersController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function store(Request $request)
+    public function store(SpeakersRequest $request)
     {
-        $user = Auth::user();
-        $request['user_id'] = $user->id;
-
-        $this->validate($request, [
-            'user_id' => 'required',
-			'name' => 'required|string|max:150',
-			'telefone' => 'required|string|max:20',
-			'email' => 'required|string|max:255|email',
-			'description' => 'required|string',
-            'skills' => 'required|array',
-			'image' => 'file'
-		]);
         $request['skills'] = json_encode($request['skills']);
 
         $requestData = $request->all();
-                if ($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
             $fileName = Str::random(40) . '.' . $file->getClientOriginalExtension();
             $destinationPath = storage_path('/app/public/uploads');
@@ -80,7 +69,7 @@ class SpeakersController extends Controller
 
         Speaker::create($requestData);
 
-        return redirect('speakers')->with('flash_message', 'Speaker added!');
+        return redirect('speakers')->with('flash_message', 'Palestrante adicionado!');
     }
 
     /**
@@ -121,24 +110,12 @@ class SpeakersController extends Controller
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
-    public function update(Request $request, $id)
+    public function update(SpeakersRequest $request, $id)
     {
-        $user =  Auth::user();
-        $request['user_id'] = $user->id;
-
-        $this->validate($request, [
-            'user_id' => 'required',
-			'name' => 'required|string|max:150',
-			'telefone' => 'required|string|max:20',
-			'email' => 'required|string|max:255|email',
-			'description' => 'required|string',
-            'skills' => 'required|array',
-			'image' => 'string'
-		]);
         $request['skills'] = json_encode($request['skills']);
 
         $requestData = $request->all();
-                if ($request->hasFile('image')) {
+        if ($request->hasFile('image')) {
             $file = $request->file('image');
             $fileName = Str::random(40) . '.' . $file->getClientOriginalExtension();
             $destinationPath = storage_path('/app/public/uploads');
@@ -149,7 +126,7 @@ class SpeakersController extends Controller
         $speaker = Speaker::findOrFail($id);
         $speaker->update($requestData);
 
-        return redirect('speakers')->with('flash_message', 'Speaker updated!');
+        return redirect('speakers')->with('flash_message', 'Palestrante atualizado!');
     }
 
     /**
@@ -163,6 +140,6 @@ class SpeakersController extends Controller
     {
         Speaker::destroy($id);
 
-        return redirect('speakers')->with('flash_message', 'Speaker deleted!');
+        return redirect('speakers')->with('flash_message', 'Palestrando deletado!');
     }
 }

@@ -1,29 +1,29 @@
 <div class="form-group mb-3 {{ $errors->has('name') ? 'has-error' : ''}}">
-    <label for="name" class="control-label">{{ 'Nome do Palestrante' }}</label>
+    <label for="name" class="control-label">{{ 'Nome do Palestrante' }}<span class="text-danger">*</span></label>
     <input class="form-control mb-3" name="name" type="text" id="name" value="{{ isset($speaker->name) ? $speaker->name : ''}}" required>
 
     {!! $errors->first('name', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group mb-3 {{ $errors->has('telefone') ? 'has-error' : ''}}">
-    <label for="telefone" class="control-label">{{ 'Telefone' }}</label>
+    <label for="telefone" class="control-label">{{ 'Telefone' }}<span class="text-danger">*</span></label>
     <input class="form-control mb-3" name="telefone" type="text" id="telefone" value="{{ isset($speaker->telefone) ? $speaker->telefone : ''}}" required>
 
     {!! $errors->first('telefone', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group mb-3 {{ $errors->has('email') ? 'has-error' : ''}}">
-    <label for="email" class="control-label">{{ 'Email' }}</label>
+    <label for="email" class="control-label">{{ 'Email' }}<span class="text-danger">*</span></label>
     <input class="form-control mb-3" name="email" type="email" id="email" value="{{ isset($speaker->email) ? $speaker->email : ''}}" required>
 
     {!! $errors->first('email', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group mb-3 {{ $errors->has('description') ? 'has-error' : ''}}">
-    <label for="description" class="control-label">{{ 'Descrição' }}</label>
+    <label for="description" class="control-label">{{ 'Descrição' }}<span class="text-danger">*</span></label>
     <textarea rows="4" name="description" class="form-control @error('description') is-invalid @enderror" placeholder="Digite aqui seu texto..." required>{{ old('description', @$speaker->description) }}</textarea>
 
     {!! $errors->first('description', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group mb-3 {{ $errors->has('skills') ? 'has-error' : ''}}">
-    <label for="skills" class="control-label">{{ 'Skills' }}</label>
+    <label for="skills" class="control-label">{{ 'Skills' }}<span class="text-danger">*</span></label>
     <br/>
     <select class="form-select" name="skills[]" size="3" multiple aria-label="size 3 select example">
         <option value="HTML" {{ isset($skills) ? in_array('HTML', $skills) ? 'selected' : '' : ''}}>HTML</option>
@@ -45,5 +45,6 @@
 
 <hr>
 <div class="form-group">
+    <input name="user_id" type="hidden" value="{{ Auth::user()->id }}" required>
     <input class="btn btn-primary btn-sm" type="submit" value="{{ $formMode === 'edit' ? 'Atualizar' : 'Cadastrar' }}">
 </div>

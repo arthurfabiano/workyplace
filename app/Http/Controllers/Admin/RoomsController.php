@@ -60,7 +60,7 @@ class RoomsController extends Controller
 
         $this->roomRepository->createRoom($requestData);
 
-        return redirect('rooms')->with('flash_message', 'Room added!');
+        return redirect('rooms')->with('flash_message', 'Sala adicionada!');
     }
 
     /**
@@ -106,7 +106,7 @@ class RoomsController extends Controller
         $room = $this->roomRepository->findRoom($id);
         $room->update($requestData);
 
-        return redirect('rooms')->with('flash_message', 'Room updated!');
+        return redirect('rooms')->with('flash_message', 'Sala atualizada!');
     }
 
     /**
@@ -120,6 +120,6 @@ class RoomsController extends Controller
     {
         $this->roomRepository->deleteRoom($id);
 
-        return redirect('rooms')->with('flash_message', 'Room deleted!');
+        return redirect('rooms')->with('flash_message', 'Sala deletada!');
     }
 }

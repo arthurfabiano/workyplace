@@ -9,6 +9,12 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('site.eventos') }}">Eventos</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('site.palestrantes') }}">Palestrantes</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('site.contato') }}">Contato</a></li>
+                @if(Auth::check())
+                    <li class="nav-item"><a class="nav-link text-warning" href="{{ route('admin.dashboard') }}">Acessar Painel</a></li>
+                @endif
+                @if(Auth::guest())
+                    <li class="nav-item"><a class="nav-link text-warning" href="{{ route('login') }}">Entrar / Registar</a></li>
+                @endif
             </ul>
         </div>
     </div>
