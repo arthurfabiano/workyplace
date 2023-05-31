@@ -39,7 +39,7 @@
                         <a class="nav-link" href="{{ route('users.index') }}">Usuários</a>
                     </nav>
                 </div>
-                <a class="nav-link" href="{{ route('messages.index') }}" target="_blank">
+                <a class="nav-link" href="{{ route('messages.index') }}">
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-envelope"></i></div>
                     Mensagens
                 </a>
