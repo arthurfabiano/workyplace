@@ -12,7 +12,7 @@ Entre na pasta do projeto
 cd workyplace/
 ```
 
-Checkout branch DEV
+Checkout branch DEV (E aguarde até mudar de branch)
 ```sh
 git checkout dev
 ```
@@ -27,7 +27,7 @@ Atualize as variáveis de ambiente do arquivo .env
 APP_NAME="Worky place"
 APP_URL=http://localhost
 
-DB_HOST=host
+DB_HOST=mysql
 DB_PORT=3306
 DB_DATABASE=workyplace
 DB_USERNAME=sail
@@ -57,11 +57,6 @@ Composer install
 Suba os containers do projeto
 ```sh
 Docker compose up -d
-```
-
-Acessar o container
-```sh
-Docker compose exec app bash
 ```
 
 Rode o comando para gerar a KEY do laravel
