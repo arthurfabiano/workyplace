@@ -2,20 +2,19 @@
 
 ### Passo a passo
 
-Informativo sobre
-```sh
-Na pasta doc dentro do projeto possui um arquivo do postman onde poderá importar para fazer uso da API. 
-Nome: Wins.ai.postman_collection.json
-```
-
 Clone Repositório
 ```sh
-git clone https://github.com/arthurmasterdevelop/winx.git
+git clone https://github.com/arthurfabiano/workyplace.git
 ```
 
 Entre na pasta do projeto
 ```sh
-cd winx/
+cd workyplace/
+```
+
+Checkout branch DEV (E aguarde até mudar de branch)
+```sh
+git checkout dev
 ```
 
 Crie o arquivo .env
@@ -25,14 +24,14 @@ Crie o arquivo .env
 
 Atualize as variáveis de ambiente do arquivo .env
 ```dosini
-APP_NAME="Winai"
-APP_URL=http://localhost:8989
+APP_NAME="Worky place"
+APP_URL=http://localhost
 
-DB_HOST=host
+DB_HOST=mysql
 DB_PORT=3306
-DB_DATABASE=name_banco
-DB_USERNAME=user_banco
-DB_PASSWORD=password_banco
+DB_DATABASE=workyplace
+DB_USERNAME=sail
+DB_PASSWORD=password
 
 CACHE_DRIVER=redis
 QUEUE_CONNECTION=database
@@ -41,11 +40,13 @@ SESSION_DRIVER=redis
 REDIS_HOST=redis
 
 MAIL_MAILER=smtp
-MAIL_HOST=host_mail
-MAIL_PORT=port
-MAIL_USERNAME=user
-MAIL_PASSWORD=password
-MAIL_ENCRYPTION=encryption
+MAIL_HOST=mailpit
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS="contato@workyplace.com"
+MAIL_FROM_NAME="${APP_NAME}"
 ```
 
 Instalar as dependências do projeto
@@ -58,26 +59,23 @@ Suba os containers do projeto
 Docker compose up -d
 ```
 
-Acessar o container
-```sh
-Docker compose exec app bash
-```
-
 Rode o comando para gerar a KEY do laravel
 ```sh
-Php artisan key:generate
+./vendor/bin/sail artisan key:generate
 ```
 
 Rode as migrations
 ```sh
-Php artisan migrate —seed
+./vendor/bin/sail artisan migrate 
 ```
 
-Na pasta do projeto rode
+Incializar a fila (Deixe o terminal aberto)
 ```sh
-npm install
-npm run dev
+./vendor/bin/sail artisan queue:work database --queue=high,default
 ```
 
 Acessar o projeto
-[http://localhost:8989](http://localhost:8989)
+[http://localhost](http://localhost)
+
+Acessar servidor de email
+[http://localhost:8025](http://localhost:8025)
