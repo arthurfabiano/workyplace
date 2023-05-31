@@ -2,7 +2,7 @@
     <div class="form-group mb-3 {{ $errors->has('rooms') ? 'has-error' : ''}}">
         <label for="rooms" class="control-label">{{ 'Salas' }}<span class="text-danger">*</span></label>
         <br/>
-        <select class="form-select" name="room_id" aria-label="size 3 select example">
+        <select class="form-select" name="room_id" aria-label="size 3 select example" required>
             <option value="">Selecione a Sala</option>
             @foreach( $rooms as $room )
                 <option value="{{ $room->id }}" {{ $room->id == @$event->room_id ? 'selected' : '' }}>
@@ -18,7 +18,7 @@
     <div class="form-group mb-3 {{ $errors->has('speakers') ? 'has-error' : ''}}">
         <label for="speakers" class="control-label">{{ 'Palestrante' }}<span class="text-danger">*</span></label>
         <br/>
-        <select class="form-select" name="speaker_id" aria-label="size 3 select example">
+        <select class="form-select" name="speaker_id" aria-label="size 3 select example" required>
             <option value="">Selecione a Sala</option>
             @foreach( $speakers as $speaker )
                 <option value="{{ $speaker->id }}" {{ $speaker->id == @$event->speaker_id ? 'selected' : '' }}>
